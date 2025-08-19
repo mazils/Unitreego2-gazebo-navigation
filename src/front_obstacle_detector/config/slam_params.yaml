@@ -1,0 +1,35 @@
+/slam_toolbox:
+  ros__parameters:
+    mode: mapping
+    use_sim_time: false          # or true if using /clock (bags/sim)
+    map_frame: map
+    odom_frame: odom
+    base_frame: base_link        # change from base_footprint if your TF tree uses base_link
+    scan_topic: /scan
+
+    # Fix your earlier warning + queue drops
+    min_laser_range: 0.2         # sensor real min
+    max_laser_range: 60.0        # or your LiDAR max
+    scan_queue_size: 20          # was 1 (too small)
+    throttle_scans: 1            # increase to 2+ to drop load if needed
+
+    # Motion/trigger thresholds (lower for more frequent updates if slow robot)
+    minimum_travel_distance: 0.1
+    minimum_travel_heading: 0.1
+    minimum_time_interval: 0.1
+
+    # Loop closure enable
+    do_loop_closing: true
+    loop_search_maximum_distance: 5.0
+
+    resolution: 0.05
+    transform_publish_period: 0.05
+    transform_timeout: 0.3
+    tf_buffer_duration: 30.0
+
+    # Matching penalties (leave if unsure)
+    distance_variance_penalty: 0.5
+    angle_variance_penalty: 1.0
+
+    # Save map service support
+    use_map_saver: true

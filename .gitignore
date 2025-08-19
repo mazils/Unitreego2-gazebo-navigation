@@ -2,7 +2,7 @@
 build/
 install/
 log/
-src/teleop/
+src/teleop_twist_keyboard
 
 # Python
 __pycache__/
